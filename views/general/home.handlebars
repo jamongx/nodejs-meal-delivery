@@ -1,0 +1,37 @@
+<div class="hero-home">
+    <h1>Enjoy World's Cuisines</h1>
+</div>
+
+<div class="flex-contents">
+    {{#each contents }}
+    <div>
+        <img src="{{this.image}}"></img></br>
+        {{this.name}} </br>
+        {{this.desc}} </br>
+    </div>
+    {{/each}}
+</div>
+
+<br/>
+
+<div class="flex-cuisine">
+    {{#if user.clerk}}
+        {{#each cuisines }}
+        <div>
+            <a href='/dashboard/read?_id={{this._id}}'><img src="{{this.image}}"></img></a></br>
+            {{this.name}} </br>
+            CAD : {{this.price}} </br>
+            Meals : {{this.meals}} </br>
+        </div>
+        {{/each}}
+    {{else}}
+        {{#each cuisines }}
+        <div>
+            <a href='/shopping/purchase?_id={{this._id}}'><img src="{{this.image}}"></img></a></br>
+            {{this.name}} </br>
+            CAD : {{this.price}} </br>
+            Meals : {{this.meals}} </br>
+        </div>
+        {{/each}}
+    {{/if}}
+</div>
